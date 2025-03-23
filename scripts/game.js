@@ -113,7 +113,7 @@ function setup() {
   socket.on("load-world", data => { // first time loading world, right after pressing play
     gameData = data;
     permanentID = socket.id;
-    assetsLoaded[data.mapData.config["ground-image"]] = loadImage(data.mapData.config["ground-image"]);
+    assetsLoaded[data.mapData.config["ground-image"]] = loadImage(window.location.href + data.mapData.config["ground-image"]);
     for(let i = 0; i < data.mapData.obstacles.length; i++) {
       assetsLoaded[data.mapData.obstacles[i]["display-data"].src] = loadImage(window.location.href + data.mapData.obstacles[i]["display-data"].src);
     }
