@@ -100,13 +100,13 @@ function setup() {
 
   sourceSansPro = loadFont("/fonts/SourceSansPro-Black.ttf");
 
-  assetsLoaded["/assets/player/player-base.svg"] = loadImage("/assets/player/player-base.svg");
-  assetsLoaded["/assets/player/player-hand.svg"] = loadImage("/assets/player/player-hand.svg");
-  assetsLoaded["/assets/weapons/bullet.svg"] = loadImage("/assets/weapons/bullet.svg");
-  assetsLoaded["/assets/weapons/ak47-----TOPDOWN.svg"] = loadImage("/assets/weapons/ak47-----TOPDOWN.svg");
-  assetsLoaded["/assets/misc/particle.svg"] = loadImage("/assets/misc/particle.svg");
-  assetsLoaded["/assets/weapons/cartridge.svg"] = loadImage("/assets/weapons/cartridge.svg");
-  assetsLoaded["/assets/audio/guns/gunshot-sound-effect-single-shot.mp3"] = new Howl({ src: ["/assets/audio/guns/gunshot-sound-effect-single-shot.mp3"], volume: 1 });
+  assetsLoaded["/assets/player/player-base.svg"] = loadImage(window.location.href + "/assets/player/player-base.svg");
+  assetsLoaded["/assets/player/player-hand.svg"] = loadImage(window.location.href + "/assets/player/player-hand.svg");
+  assetsLoaded["/assets/weapons/bullet.svg"] = loadImage(window.location.href + "/assets/weapons/bullet.svg");
+  assetsLoaded["/assets/weapons/ak47-----TOPDOWN.svg"] = loadImage(window.location.href + "/assets/weapons/ak47-----TOPDOWN.svg");
+  assetsLoaded["/assets/misc/particle.svg"] = loadImage(window.location.href + "/assets/misc/particle.svg");
+  assetsLoaded["/assets/weapons/cartridge.svg"] = loadImage(window.location.href + "/assets/weapons/cartridge.svg");
+  assetsLoaded["/assets/audio/guns/gunshot-sound-effect-single-shot.mp3"] = new Howl({ src: [window.location.href + "/assets/audio/guns/gunshot-sound-effect-single-shot.mp3"], volume: 1 });
 
   document.getElementById("play-button").addEventListener("click", function() {requestConnectToGame();});
 
@@ -115,7 +115,7 @@ function setup() {
     permanentID = socket.id;
     assetsLoaded[data.mapData.config["ground-image"]] = loadImage(data.mapData.config["ground-image"]);
     for(let i = 0; i < data.mapData.obstacles.length; i++) {
-      assetsLoaded[data.mapData.obstacles[i]["display-data"].src] = loadImage(data.mapData.obstacles[i]["display-data"].src);
+      assetsLoaded[data.mapData.obstacles[i]["display-data"].src] = loadImage(window.location.href + data.mapData.obstacles[i]["display-data"].src);
     }
     assetsAreLoaded = true;
     state = "ingame-weaponselect";
